@@ -8,4 +8,6 @@ FROM alpine:latest
 
 COPY --from=builder /go/bin/oauth2_proxy /oauth2_proxy
 
+RUN apk update && apk add ca-certificates
+
 ENTRYPOINT ["/oauth2_proxy"]
